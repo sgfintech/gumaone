@@ -1,0 +1,30 @@
+﻿# SGG IT Services — SPA routing for LiteSpeed / Apache (Namecheap)
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Serve real files/directories as-is, and let /api/* 404 fast (don't rewrite to the app)
+RewriteCond %{REQUEST_URI} ^/api/ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else -> index.html (client-side routing handles /investors, /privacy-policy, etc.)
+RewriteRule ^ index.html [L]
+
+# Cache hashed assets aggressively; keep index.html fresh
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "(index\.html|manifest\.json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+

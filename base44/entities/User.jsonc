@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ],
+      // Only an admin may change a role, so a signed-in user cannot promote themselves.
+      "rls": {
+        "update": { "user_condition": { "role": "admin" } }
+      }
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "name": "User",
+  "type": "object"
+}

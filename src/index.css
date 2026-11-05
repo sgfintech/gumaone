@@ -1,0 +1,305 @@
+/* Self-hosted faces for the home page (latin subset, from Fontsource, OFL). */
+@font-face { font-family: "League Spartan"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/league-spartan-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/figtree-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/figtree-latin-600-normal.woff2") format("woff2"); }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 5%;
+    --primary: 222 47% 5%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 222 47% 5%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 174 77% 26%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 174 77% 26%;
+    --radius: 0.75rem;
+    --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 173 68% 58%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 173 68% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(200, 80, 30, 0.18);
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .glass {
+    background: rgba(2, 6, 23, 0.04);
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    backdrop-filter: blur(16px);
+  }
+
+  .dark .glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(2, 6, 23, 0.05);
+  }
+
+  .dark .glass-nav {
+    background: rgba(2, 6, 23, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .text-glow-teal {
+    text-shadow: 0 0 24px rgba(45, 212, 191, 0.45);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.25);
+  }
+
+  .glow-teal-lg {
+    box-shadow: 0 0 60px rgba(45, 212, 191, 0.35);
+  }
+
+  .circuit-bg {
+    background-image:
+      linear-gradient(rgba(45, 212, 191, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .circuit-bg-dense {
+    background-image:
+      linear-gradient(rgba(45, 212, 191, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scroll-snap-start {
+    scroll-snap-align: start;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .tech-grid-move {
+    background-image:
+      linear-gradient(rgba(45, 212, 191, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.035) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-pan 20s linear infinite;
+  }
+
+  @keyframes grid-pan {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  .tech-float-1 {
+    animation: float-orb-1 18s ease-in-out infinite;
+  }
+
+  .tech-float-2 {
+    animation: float-orb-2 22s ease-in-out infinite;
+  }
+
+  .tech-float-3 {
+    animation: float-orb-3 20s ease-in-out infinite;
+  }
+
+  @keyframes float-orb-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, 40px) scale(1.15); }
+  }
+
+  @keyframes float-orb-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-50px, -60px) scale(1.1); }
+  }
+
+  @keyframes float-orb-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -50px) scale(1.2); }
+  }
+}
+
+/* ---- Guma One landing (warm, Filipino) ---- */
+@layer utilities {
+  .pill-shadow { box-shadow: 0 3px 12px rgba(0,0,0,0.10); }
+  .pill-shadow:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.14); }
+  .card-lift { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform: translateY(-2px); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .text-balance { text-wrap: balance; }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); font-variation-settings: "SOFT" 50, "opsz" 144; }
+  .grain { position: relative; }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.11 0 0 0 0 0.08 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .photo-fade { background: linear-gradient(to top, rgba(43,29,20,.85) 0%, rgba(43,29,20,.35) 45%, rgba(43,29,20,0) 75%); }
+  .underline-brand { text-decoration: underline; text-decoration-color: #F2A93B; text-decoration-thickness: .12em; text-underline-offset: .12em; }
+}
+
+/* ---- Guma One home: "sa ilalim ng payong" ---- */
+.g1 {
+  --step-small: 0.9375rem;
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.25rem, 1.4rem + 3vw, 4rem);
+  --step-display: clamp(2.5rem, 1.2rem + 5vw, 6rem);
+  font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--step-body);
+  line-height: 1.5;
+}
+.g1 h1, .g1 h2, .g1 .display {
+  font-family: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+.g1 h3, .g1 h4 {
+  font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.g1 .t-small { font-size: var(--step-small); }
+.g1 .t-body { font-size: var(--step-body); }
+.g1 .t-lead { font-size: var(--step-lead); line-height: 1.4; }
+.g1 .t-head { font-size: var(--step-head); }
+.g1 .t-display { font-size: var(--step-display); }
+.g1 ::selection { background: #F2A93B; color: #13203F; }
+.g1 { caret-color: #B8400F; accent-color: #B8400F; scrollbar-color: #DDE3EE transparent; }
+.g1 a { text-underline-offset: 0.2em; }
+.g1 [data-ui] { font-variant-numeric: tabular-nums; }
+html:has(.g1) { scrollbar-color: #C9D1E0 #F3F5F9; }
+.g1 :focus-visible { outline: 3px solid #13203F; outline-offset: 3px; }
+.payong-clip { clip-path: url(#payong-clip); }
+.coupon {
+  -webkit-mask: radial-gradient(circle 16px at 46% 0, transparent 15px, #000 16px) top / 100% 51% no-repeat,
+                radial-gradient(circle 16px at 46% 100%, transparent 15px, #000 16px) bottom / 100% 50% no-repeat;
+          mask: radial-gradient(circle 16px at 46% 0, transparent 15px, #000 16px) top / 100% 51% no-repeat,
+                radial-gradient(circle 16px at 46% 100%, transparent 15px, #000 16px) bottom / 100% 50% no-repeat;
+}
+@media (max-width: 1023px) {
+  .coupon {
+    -webkit-mask: none; mask: none;
+  }
+}
+@keyframes g1-drift { from { transform: scale(1.02); } to { transform: scale(1.1); } }
+.g1-drift { animation: g1-drift 14s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) {
+  .g1-drift { animation: none; }
+}
+
+/* ---- Light, moving layer (orbit, float, marquee, UI fragments) ---- */
+@keyframes g1-spin { to { transform: rotate(360deg); } }
+@keyframes g1-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes g1-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes g1-marquee { to { transform: translateX(-50%); } }
+@keyframes g1-pulse-ring { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+.g1-spin { animation: g1-spin 90s linear infinite; }
+.g1-spin-rev { animation: g1-spin-rev 140s linear infinite; }
+.g1-float { animation: g1-float 6s ease-in-out infinite; }
+.g1-marquee { animation: g1-marquee 60s linear infinite; }
+.g1-marquee-wrap:hover .g1-marquee { animation-play-state: paused; }
+.g1-pulse::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; background: currentColor; animation: g1-pulse-ring 2.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .g1-spin, .g1-spin-rev, .g1-float, .g1-marquee, .g1-pulse::after { animation: none; }
+}
+/* Product UI fragments keep their own small type and panels */
+.g1 [data-ui] { font-family: Figtree, ui-sans-serif, system-ui, sans-serif; line-height: 1.35; }
+.ui-card { background: #fff; border-radius: 14px; box-shadow: 0 1px 2px rgba(16,24,40,.06), 0 12px 32px -8px rgba(16,24,40,.18); }

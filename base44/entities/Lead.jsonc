@@ -1,0 +1,52 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Full Name",
+      "maxLength": 120
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email Address",
+      "maxLength": 254
+    },
+    "company": {
+      "type": "string",
+      "title": "Company Name",
+      "maxLength": 160
+    },
+    "service": {
+      "type": "string",
+      "title": "Service of Interest",
+      "enum": [
+        "IT Consultancy",
+        "Website & System Solutions",
+        "Business System Solutions",
+        "Implementation & Support"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "title": "Message",
+      "maxLength": 2000
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "service",
+    "message"
+  ],
+  // Leads hold visitors' names and emails. Anyone may submit one (it is a contact
+  // form); only admins may read, change or delete them. Without this block every
+  // record would be readable by every user.
+  "rls": {
+    "create": true,
+    "read": { "user_condition": { "role": "admin" } },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}
